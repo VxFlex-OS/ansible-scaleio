@@ -80,7 +80,7 @@ To install ansible-scaleio just clone the repo and see site.yml as a generic pla
 | `#scaleio_sdc_driver_sync_repo_public_rsa_key_src` | Public ssh rsa key source (if using sftp protocol)|  `''` |
 | `scaleio_sdc_driver_sync_repo_public_rsa_key_dest` | Private ssh rsa key destination |  `'/bin/emc/scaleio/scini_sync/scini_repo_key.pub'` |
 | `scaleio_sdc_driver_sync_module_sigcheck` | Do we check the signature |  `1` |
-| `scaleio_sdc_driver_sync_emc_public_gpg_key_src` | Where is the signature file |  `"{{ scaleio_common_file_install_file_location }}/files/RPM-GPG-KEY-ScaleIO_2.0.5014.0"` |
+| `scaleio_sdc_driver_sync_emc_public_gpg_key_src` | Where is the signature file |  `"{{ scaleio_common_file_install_file_location }}/files/RPM-GPG-KEY-ScaleIO_2.0.6035.0"` |
 | `scaleio_sdc_driver_sync_emc_public_gpg_key_dest` | Where to put the signature file |  `'/bin/emc/scaleio/scini_sync/emc_key.pub'` |
 | `scaleio_sdc_driver_sync_sync_pattern` | Repo sync pattern |  `.*` |
 | `scaleio_sds_number` | Number of SDS to run on the sds's |  `1` |

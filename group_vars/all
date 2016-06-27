@@ -25,7 +25,7 @@ scaleio_sdc_driver_sync_user_private_rsa_key_dest: '/bin/emc/scaleio/scini_sync/
 #scaleio_sdc_driver_sync_repo_public_rsa_key_src: ''
 scaleio_sdc_driver_sync_repo_public_rsa_key_dest: '/bin/emc/scaleio/scini_sync/scini_repo_key.pub'
 scaleio_sdc_driver_sync_module_sigcheck: 1
-scaleio_sdc_driver_sync_emc_public_gpg_key_src: "{{ scaleio_common_file_install_file_location }}/RPM-GPG-KEY-ScaleIO_2.0.5014.0"
+scaleio_sdc_driver_sync_emc_public_gpg_key_src: "{{ scaleio_common_file_install_file_location }}/RPM-GPG-KEY-ScaleIO_2.0.6035.0"
 scaleio_sdc_driver_sync_emc_public_gpg_key_dest: '/bin/emc/scaleio/scini_sync/emc_key.pub'
 scaleio_sdc_driver_sync_sync_pattern: .*
 
