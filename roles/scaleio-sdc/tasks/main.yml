@@ -10,7 +10,9 @@
   when: scaleio_sdc_driver_sync_repo_public_rsa_key_src is defined
 
 - name: copy scaleio_sdc_driver_sync_emc_public_gpg_key_src for driver_sync.conf
-  copy: src="{{ scaleio_sdc_driver_sync_emc_public_gpg_key_src }}" dest="{{ scaleio_sdc_driver_sync_emc_public_gpg_key_dest }}" mode="0600" owner="root" group="root"
+  copy: src="{{ item }}" dest="{{ scaleio_sdc_driver_sync_emc_public_gpg_key_dest }}" mode="0600" owner="root" group="root"
+  with_fileglob:
+    - "{{ scaleio_sdc_driver_sync_emc_public_gpg_key_src }}"
   when: scaleio_sdc_driver_sync_emc_public_gpg_key_src is defined
 
 - name: copy driver_sync.conf template in place
