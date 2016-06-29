@@ -20,7 +20,7 @@ test-ubuntu-trusty: prep-ubuntu-env
 	-e "scaleio_gateway_virtual_ip=192.168.33.49" \
 	-e "scaleio_gateway_virtual_interface=eth0" \
 	-e "scaleio_common_file_install_file_location=$(SCALEIO_COMMON_FILE_INSTALL_FILE_LOCATION)/2.0/Ubuntu/14.04" \
-	-e "scaleio_sdc_driver_sync_emc_public_gpg_key_src=$(SCALEIO_COMMON_FILE_INSTALL_FILE_LOCATION)/2.0/common/RPM-GPG-KEY-ScaleIO_2.0.5014.0" \
+	-e "scaleio_sdc_driver_sync_emc_public_gpg_key_src=$(SCALEIO_COMMON_FILE_INSTALL_FILE_LOCATION)/2.0/common/RPM-GPG-KEY-ScaleIO_2.0.6035.0" \
 	site.yml
 
 .PHONY:
@@ -32,7 +32,7 @@ test-centos-7: clean
     	-e "scaleio_gateway_virtual_ip=192.168.33.49" \
     	-e "scaleio_gateway_virtual_interface=enp0s8" \
 	-e "scaleio_common_file_install_file_location=$(SCALEIO_COMMON_FILE_INSTALL_FILE_LOCATION)/2.0/RHEL/7" \
-	-e "scaleio_sdc_driver_sync_emc_public_gpg_key_src=$(SCALEIO_COMMON_FILE_INSTALL_FILE_LOCATION)/2.0/common/RPM-GPG-KEY-ScaleIO_2.0.5014.0" \
+	-e "scaleio_sdc_driver_sync_emc_public_gpg_key_src=$(SCALEIO_COMMON_FILE_INSTALL_FILE_LOCATION)/2.0/common/RPM-GPG-KEY-ScaleIO_2.0.6035.0" \
 	site.yml
 
 .PHONY:
