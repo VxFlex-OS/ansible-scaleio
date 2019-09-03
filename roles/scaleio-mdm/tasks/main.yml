@@ -16,7 +16,23 @@
   run_once: true
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
 
-- name: add primary mdm
+- name: add primary mdm with virtual ip
+  command: >
+    scli --create_mdm_cluster
+    --master_mdm_ip {{ scaleio_mdm_primary_ip }}
+    --master_mdm_management_ip {{ scaleio_mdm_primary_ip }}
+    --master_mdm_name {{ scaleio_mdm_primary_hostname }}
+    --master_mdm_virtual_ip_interface {{ ansible_default_ipv4.interface }}
+    --cluster_virtual_ip {{ scaleio_mdm_virtual_ip }}
+    --accept_license --approve_certificate
+  run_once: true
+  delegate_to: "{{ scaleio_mdm_primary_hostname }}"
+  until: ("{{ add_primary_mdm.rc }} == 0") or ("{{ add_primary_mdm.rc }} == 7")
+  register: add_primary_mdm
+  ignore_errors: true
+  when scaleio_mdm_virtual_ip is defined
+
+- name: add primary mdm without virtual ip
   command: >
     scli --create_mdm_cluster
     --master_mdm_ip {{ scaleio_mdm_primary_ip }}
@@ -29,6 +45,7 @@
   until: ("{{ add_primary_mdm.rc }} == 0") or ("{{ add_primary_mdm.rc }} == 7")
   register: add_primary_mdm
   ignore_errors: true
+  when scaleio_mdm_virtual_ip is not defined
 
 - name: wait for mdm to be active
   wait_for: port=6611 state=started
@@ -90,10 +107,4 @@
   ignore_errors: true
   when: scaleio_mdm_tertiary_ip is defined
 
-- name: Add MDM Cluster Virtual IP
-  command: echo 'y' | scli --modify_cluster_virtual_ips --cluster_virtual_ip "{{ scaleio_mdm_virtual_ip }}"
-  run_once: true
-  delegate_to: "{{ scaleio_mdm_primary_hostname }}"
-  when:
-    - scaleio_mdm_virtual_ip is defined
   
