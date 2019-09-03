@@ -30,7 +30,7 @@
   until: ("{{ add_primary_mdm.rc }} == 0") or ("{{ add_primary_mdm.rc }} == 7")
   register: add_primary_mdm
   ignore_errors: true
-  when scaleio_mdm_virtual_ip is defined
+  when: scaleio_mdm_virtual_ip is defined
 
 - name: add primary mdm without virtual ip
   command: >
@@ -45,7 +45,7 @@
   until: ("{{ add_primary_mdm.rc }} == 0") or ("{{ add_primary_mdm.rc }} == 7")
   register: add_primary_mdm
   ignore_errors: true
-  when scaleio_mdm_virtual_ip is not defined
+  when: scaleio_mdm_virtual_ip is not defined
 
 - name: wait for mdm to be active
   wait_for: port=6611 state=started
