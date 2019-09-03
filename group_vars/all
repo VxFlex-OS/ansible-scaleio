@@ -2,6 +2,7 @@ scaleio_license:
 scaleio_protection_domain: domain1
 scaleio_cluster_name: cluster1
 scaleio_storage_pool: pool1
+# scaleio_mdm_virtual_ip: MDM_VIP
 
 # scaleio_fault_set: ['fs1','fs2','fs3']
 # scaleio_fault_sets:

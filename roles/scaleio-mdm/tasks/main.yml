@@ -48,6 +48,14 @@
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
   when: initial_login.rc == 0
 
+- name: Add MDM Cluster Virtual IP
+  command: scli --modify_cluster_virtual_ips --cluster_virtual_ip "{{ scaleio_mdm_virtual_ip }}"
+  run_once: true
+  delegate_to: "{{ scaleio_mdm_primary_hostname }}"
+  when:
+    - initial_login.rc == 0
+    - scaleio_mdm_virtual_ip is defined
+
 - name: secondary node login
   command: scli --login --mdm_ip {{ scaleio_mdm_primary_ip }} --username admin --password {{ scaleio_password }} --approve_certificate
   run_once: true
