@@ -2,6 +2,8 @@
   hosts: all
   tasks:
   - name: uninstall package
+    environment:
+      I_AM_SURE: 1
     package: name="{{ item }}" state="absent"
     with_items:
      - EMC-ScaleIO-lia
